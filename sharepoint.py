@@ -4,13 +4,13 @@ from shareplum import Site, Office365
 from shareplum.site import Version
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-config_path = '\\'.join([ROOT_DIR, 'config.json'])
+config_path = '/'.join([ROOT_DIR, 'config.json'])
 
 with open(config_path) as config_file:
     config = json.load(config_file)
     config = config['share_point']
 
-USERNAME = config['username']
+USERNAME = config['user']
 PASSWORD = config['password']
 SHAREPOINT_URL = config['url']
 SHAREPOINT_SITE = config['site']
@@ -33,3 +33,7 @@ class SharePoint:
         self.folder = self.auth_site.Folder(self.sharepoint_dir)
 
         return self.folder
+
+    def download_file(self, file_name, folder_name):
+        self._folder = self.connect_folder(folder_name)
+        return self._folder.get_file(file_name)
