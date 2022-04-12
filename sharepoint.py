@@ -37,3 +37,11 @@ class SharePoint:
     def download_file(self, file_name, folder_name):
         self._folder = self.connect_folder(folder_name)
         return self._folder.get_file(file_name)
+
+    def _get_files_list(self, folder_name):
+        self._folder = self.connect_folder(folder_name)
+        return self._folder.files
+
+    def download_files(self, folder_name):
+        self._files_list = self._get_files_list(folder_name)
+        return self._files_list
