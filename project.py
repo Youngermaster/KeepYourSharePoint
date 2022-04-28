@@ -13,7 +13,7 @@ file_name_pattern = sys.argv[4]
 
 
 def save_file(file_n, file_obj):
-    file_dir_path = '\\'.join([folder_dest, file_n])
+    file_dir_path = ''.join([folder_dest, file_n])
     with open(file_dir_path, 'wb') as f:
         f.write(file_obj)
         f.close()
