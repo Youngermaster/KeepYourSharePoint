@@ -32,9 +32,6 @@ class SharePoint:
         self.sharepoint_dir = ''.join([SHAREPOINT_DOC, folder_name])
         self.folder = self.auth_site.Folder(self.sharepoint_dir)
 
-        print("==================")
-        print(self.folder)
-        print("==================")
         return self.folder
 
     def download_file(self, file_name, folder_name):
@@ -47,7 +44,4 @@ class SharePoint:
 
     def download_files(self, folder_name):
         self._files_list = self._get_files_list(folder_name)
-        print("==================")
-        print(self._files_list)
-        print("==================")
         return self._files_list
